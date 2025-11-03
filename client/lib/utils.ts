@@ -11,5 +11,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(
-  (props, ref) => React.createElement(RouterLink, { ...props, ref }),
+  (props, ref) => React.createElement(RouterLink, { ...props, ref } as any),
 );
+Link.displayName = "Link";
