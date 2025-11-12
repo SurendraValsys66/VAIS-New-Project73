@@ -352,36 +352,23 @@ export default function WishlistProspects() {
 
           {/* Create List Dialog */}
           <Dialog open={createListDialogOpen} onOpenChange={setCreateListDialogOpen}>
-            <DialogContent>
+            <DialogContent className="max-w-sm">
               <DialogHeader>
-                <DialogTitle className="flex items-center gap-2">
-                  <Plus className="w-5 h-5 text-valasys-orange" />
-                  Create New List
-                </DialogTitle>
-                <DialogDescription>
-                  Create a new prospect list to organize your leads
-                </DialogDescription>
+                <DialogTitle>Create New List</DialogTitle>
               </DialogHeader>
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">
-                    List Name
-                  </label>
-                  <Input
-                    placeholder="e.g., High Priority Leads"
-                    value={newListName}
-                    onChange={(e) => setNewListName(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        handleCreateList();
-                      }
-                    }}
-                    autoFocus
-                  />
-                </div>
-                <p className="text-xs text-gray-500">
-                  You can add prospects to this list later by finding them in the search results.
-                </p>
+              <div className="space-y-4 py-4">
+                <Input
+                  placeholder="List name"
+                  value={newListName}
+                  onChange={(e) => setNewListName(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleCreateList();
+                    }
+                  }}
+                  autoFocus
+                  className="text-base"
+                />
               </div>
               <DialogFooter>
                 <Button
@@ -397,7 +384,7 @@ export default function WishlistProspects() {
                   onClick={handleCreateList}
                   className="bg-valasys-orange hover:bg-valasys-orange/90"
                 >
-                  Create List
+                  Add List
                 </Button>
               </DialogFooter>
             </DialogContent>
