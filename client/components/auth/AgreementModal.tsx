@@ -253,7 +253,8 @@ export default function AgreementModal({
                   id="agreementConfirmed"
                   checked={agreementConfirmed}
                   onCheckedChange={(checked) =>
-                    !isAlreadyConfirmed && setAgreementConfirmed(checked === true)
+                    !isAlreadyConfirmed &&
+                    setAgreementConfirmed(checked === true)
                   }
                   disabled={isAlreadyConfirmed}
                   className="w-5 h-5 rounded-none"
@@ -285,8 +286,8 @@ export default function AgreementModal({
                   : "bg-valasys-gray-200 text-valasys-gray-500 cursor-not-allowed"
               }`}
             >
-              {agreementConfirmed && <Check className="w-4 h-4" />}
-              I agree & confirm
+              {agreementConfirmed && <Check className="w-4 h-4" />}I agree &
+              confirm
             </Button>
           </div>
         </div>
