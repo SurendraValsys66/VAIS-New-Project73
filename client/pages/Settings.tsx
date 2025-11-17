@@ -935,6 +935,20 @@ export default function Settings() {
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* Cancel Subscription Modal */}
+        <CancelSubscriptionModal
+          open={cancelSubscriptionOpen}
+          onOpenChange={setCancelSubscriptionOpen}
+          userEmail={profile.email}
+          planDetails={{
+            plan: billing.plan,
+            credits: billing.credits,
+            nextBilling: billing.nextBilling,
+            planExpiryDate: billing.planExpiryDate,
+          }}
+          onConfirm={handleCancelSubscriptionConfirm}
+        />
       </div>
     </DashboardLayout>
   );
