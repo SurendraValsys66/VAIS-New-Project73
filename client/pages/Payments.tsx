@@ -470,10 +470,17 @@ function ModernPaymentCard({
             <AlertDialogCancel className="h-10">Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={() => {
-                onDelete(method.id);
-                setDeleteOpen(false);
+                if (!isLastPaymentMethod) {
+                  onDelete(method.id);
+                  setDeleteOpen(false);
+                }
               }}
-              className="bg-red-600 hover:bg-red-700 h-10"
+              disabled={isLastPaymentMethod}
+              className={`h-10 ${
+                isLastPaymentMethod
+                  ? "bg-red-400 cursor-not-allowed opacity-50"
+                  : "bg-red-600 hover:bg-red-700"
+              }`}
             >
               Delete
             </AlertDialogAction>
