@@ -382,36 +382,6 @@ function ModernPaymentCard({
         </div>
       </div>
 
-      <div className="mt-4">
-        <div className="flex items-center justify-between">
-          <div className="text-sm font-medium text-gray-700">
-            {method.status === "active" && (
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span className="font-semibold text-green-600">Active</span>
-              </div>
-            )}
-            {method.status === "expired" && (
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-2 w-2 rounded-full bg-red-500"></span>
-                <span className="font-semibold text-red-600">Expired</span>
-              </div>
-            )}
-            {method.status === "inactive" && (
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-2 w-2 rounded-full bg-gray-400"></span>
-                <span className="font-semibold text-gray-500">Inactive</span>
-              </div>
-            )}
-          </div>
-          <div className="text-xs text-gray-500 font-medium">
-            Used {method.lastUsed}
-          </div>
-        </div>
-      </div>
 
       <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
         <AlertDialogContent className="sm:max-w-md">
