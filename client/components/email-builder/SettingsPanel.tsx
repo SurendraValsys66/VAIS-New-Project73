@@ -40,6 +40,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   }
 
   const handlePaddingChange = (value: number, side?: "top" | "right" | "bottom" | "left") => {
+    if (!block || !("padding" in block)) return;
     if (groupPaddingSides && !side) {
       setPaddingTop(value);
       setPaddingRight(value);
@@ -55,6 +56,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   };
 
   const handleMarginChange = (value: number, side?: "top" | "right" | "bottom" | "left") => {
+    if (!block || !("margin" in block)) return;
     if (groupMarginSides && !side) {
       setMarginTop(value);
       setMarginRight(value);
