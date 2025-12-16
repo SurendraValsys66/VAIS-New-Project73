@@ -21,8 +21,10 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   const [groupMarginSides, setGroupMarginSides] = useState(false);
   const [applyBorderToAllSides, setApplyBorderToAllSides] = useState(true);
   const [linkType, setLinkType] = useState("url");
-  const paddingValue = "padding" in (block || {}) ? (block as any).padding ?? 0 : 0;
-  const marginValue = "margin" in (block || {}) ? (block as any).margin ?? 0 : 0;
+  const paddingValue =
+    "padding" in (block || {}) ? ((block as any).padding ?? 0) : 0;
+  const marginValue =
+    "margin" in (block || {}) ? ((block as any).margin ?? 0) : 0;
   const [paddingTop, setPaddingTop] = useState(paddingValue);
   const [paddingRight, setPaddingRight] = useState(paddingValue);
   const [paddingBottom, setPaddingBottom] = useState(paddingValue);
@@ -40,7 +42,10 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
     );
   }
 
-  const handlePaddingChange = (value: number, side?: "top" | "right" | "bottom" | "left") => {
+  const handlePaddingChange = (
+    value: number,
+    side?: "top" | "right" | "bottom" | "left",
+  ) => {
     if (!block || !("padding" in block)) return;
     if (groupPaddingSides && !side) {
       setPaddingTop(value);
@@ -56,7 +61,10 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
     }
   };
 
-  const handleMarginChange = (value: number, side?: "top" | "right" | "bottom" | "left") => {
+  const handleMarginChange = (
+    value: number,
+    side?: "top" | "right" | "bottom" | "left",
+  ) => {
     if (!block || !("margin" in block)) return;
     if (groupMarginSides && !side) {
       setMarginTop(value);
@@ -197,9 +205,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Checkbox
                         id="groupPadding"
                         checked={groupPaddingSides}
-                        onCheckedChange={(checked) => setGroupPaddingSides(checked as boolean)}
+                        onCheckedChange={(checked) =>
+                          setGroupPaddingSides(checked as boolean)
+                        }
                       />
-                      <Label htmlFor="groupPadding" className="text-xs text-gray-600 cursor-pointer">
+                      <Label
+                        htmlFor="groupPadding"
+                        className="text-xs text-gray-600 cursor-pointer"
+                      >
                         Group sides
                       </Label>
                     </div>
@@ -210,50 +223,79 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         type="number"
                         min="0"
                         value={paddingTop}
-                        onChange={(e) => handlePaddingChange(parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handlePaddingChange(parseInt(e.target.value))
+                        }
                         className="flex-1 focus:ring-valasys-orange focus:ring-2"
                       />
-                      <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                      <span className="px-2 py-1 text-sm text-gray-600">
+                        px
+                      </span>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↑</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↑
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingTop}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "top")}
+                          onChange={(e) =>
+                            handlePaddingChange(parseInt(e.target.value), "top")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">→</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          →
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingRight}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "right")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "right",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↓</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↓
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingBottom}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "bottom")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "bottom",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">←</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ←
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingLeft}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "left")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "left",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
@@ -271,50 +313,76 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         type="number"
                         min="0"
                         value={marginTop}
-                        onChange={(e) => handleMarginChange(parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handleMarginChange(parseInt(e.target.value))
+                        }
                         className="flex-1 focus:ring-valasys-orange focus:ring-2"
                       />
-                      <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                      <span className="px-2 py-1 text-sm text-gray-600">
+                        px
+                      </span>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↑</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↑
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginTop}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "top")}
+                          onChange={(e) =>
+                            handleMarginChange(parseInt(e.target.value), "top")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">→</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          →
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginRight}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "right")}
+                          onChange={(e) =>
+                            handleMarginChange(
+                              parseInt(e.target.value),
+                              "right",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↓</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↓
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginBottom}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "bottom")}
+                          onChange={(e) =>
+                            handleMarginChange(
+                              parseInt(e.target.value),
+                              "bottom",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">←</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ←
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginLeft}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "left")}
+                          onChange={(e) =>
+                            handleMarginChange(parseInt(e.target.value), "left")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
@@ -348,7 +416,11 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Label className="text-xs text-gray-700 mb-2 block">
                     Image
                   </Label>
-                  <Button variant="outline" size="sm" className="w-full text-xs">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full text-xs"
+                  >
                     Add image
                   </Button>
                 </div>
@@ -404,9 +476,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Checkbox
                     id="applyBorder"
                     checked={applyBorderToAllSides}
-                    onCheckedChange={(checked) => setApplyBorderToAllSides(checked as boolean)}
+                    onCheckedChange={(checked) =>
+                      setApplyBorderToAllSides(checked as boolean)
+                    }
                   />
-                  <Label htmlFor="applyBorder" className="text-xs text-gray-600 cursor-pointer">
+                  <Label
+                    htmlFor="applyBorder"
+                    className="text-xs text-gray-600 cursor-pointer"
+                  >
                     Apply to all sides
                   </Label>
                 </div>
@@ -675,9 +752,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Checkbox
                         id="groupPadding"
                         checked={groupPaddingSides}
-                        onCheckedChange={(checked) => setGroupPaddingSides(checked as boolean)}
+                        onCheckedChange={(checked) =>
+                          setGroupPaddingSides(checked as boolean)
+                        }
                       />
-                      <Label htmlFor="groupPadding" className="text-xs text-gray-600 cursor-pointer">
+                      <Label
+                        htmlFor="groupPadding"
+                        className="text-xs text-gray-600 cursor-pointer"
+                      >
                         Group sides
                       </Label>
                     </div>
@@ -688,50 +770,79 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         type="number"
                         min="0"
                         value={paddingTop}
-                        onChange={(e) => handlePaddingChange(parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handlePaddingChange(parseInt(e.target.value))
+                        }
                         className="flex-1 focus:ring-valasys-orange focus:ring-2"
                       />
-                      <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                      <span className="px-2 py-1 text-sm text-gray-600">
+                        px
+                      </span>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↑</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↑
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingTop}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "top")}
+                          onChange={(e) =>
+                            handlePaddingChange(parseInt(e.target.value), "top")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">→</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          →
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingRight}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "right")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "right",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↓</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↓
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingBottom}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "bottom")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "bottom",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">←</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ←
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingLeft}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "left")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "left",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
@@ -749,50 +860,76 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         type="number"
                         min="0"
                         value={marginTop}
-                        onChange={(e) => handleMarginChange(parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handleMarginChange(parseInt(e.target.value))
+                        }
                         className="flex-1 focus:ring-valasys-orange focus:ring-2"
                       />
-                      <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                      <span className="px-2 py-1 text-sm text-gray-600">
+                        px
+                      </span>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↑</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↑
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginTop}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "top")}
+                          onChange={(e) =>
+                            handleMarginChange(parseInt(e.target.value), "top")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">→</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          →
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginRight}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "right")}
+                          onChange={(e) =>
+                            handleMarginChange(
+                              parseInt(e.target.value),
+                              "right",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↓</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↓
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginBottom}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "bottom")}
+                          onChange={(e) =>
+                            handleMarginChange(
+                              parseInt(e.target.value),
+                              "bottom",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">←</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ←
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginLeft}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "left")}
+                          onChange={(e) =>
+                            handleMarginChange(parseInt(e.target.value), "left")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
@@ -826,7 +963,11 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Label className="text-xs text-gray-700 mb-2 block">
                     Image
                   </Label>
-                  <Button variant="outline" size="sm" className="w-full text-xs">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full text-xs"
+                  >
                     Add image
                   </Button>
                 </div>
@@ -878,9 +1019,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Checkbox
                     id="applyBorder"
                     checked={applyBorderToAllSides}
-                    onCheckedChange={(checked) => setApplyBorderToAllSides(checked as boolean)}
+                    onCheckedChange={(checked) =>
+                      setApplyBorderToAllSides(checked as boolean)
+                    }
                   />
-                  <Label htmlFor="applyBorder" className="text-xs text-gray-600 cursor-pointer">
+                  <Label
+                    htmlFor="applyBorder"
+                    className="text-xs text-gray-600 cursor-pointer"
+                  >
                     Apply to all sides
                   </Label>
                 </div>
@@ -1004,7 +1150,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 Content visibility
               </h4>
               <p className="text-xs text-gray-500 mb-3">
-                Display content based on the type of device or other specific conditions
+                Display content based on the type of device or other specific
+                conditions
               </p>
               <div className="flex gap-2 flex-wrap">
                 <Button
@@ -1051,20 +1198,32 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
               <div className="flex items-center justify-between mb-3">
                 <h4 className="text-xs font-bold text-gray-900">Visual</h4>
                 <div className="flex gap-2">
-                  <Button variant="link" size="sm" className="text-xs h-auto p-0 text-valasys-orange">
+                  <Button
+                    variant="link"
+                    size="sm"
+                    className="text-xs h-auto p-0 text-valasys-orange"
+                  >
                     Edit
                   </Button>
-                  <Button variant="link" size="sm" className="text-xs h-auto p-0 text-valasys-orange">
+                  <Button
+                    variant="link"
+                    size="sm"
+                    className="text-xs h-auto p-0 text-valasys-orange"
+                  >
                     Replace
                   </Button>
                 </div>
               </div>
               <div className="bg-gray-50 rounded border border-gray-200 aspect-video flex items-center justify-center mb-3">
                 <div className="text-center">
-                  <div className="text-gray-400 text-xs mb-1">Image placeholder</div>
+                  <div className="text-gray-400 text-xs mb-1">
+                    Image placeholder
+                  </div>
                 </div>
               </div>
-              <div className="text-xs text-gray-500 mb-3">1200 x 675 px - 20 KB</div>
+              <div className="text-xs text-gray-500 mb-3">
+                1200 x 675 px - 20 KB
+              </div>
             </div>
 
             <div>
@@ -1140,7 +1299,11 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   />
                 </div>
 
-                <Button variant="link" size="sm" className="text-xs h-auto p-0 text-valasys-orange">
+                <Button
+                  variant="link"
+                  size="sm"
+                  className="text-xs h-auto p-0 text-valasys-orange"
+                >
                   Remove link
                 </Button>
               </div>
@@ -1270,9 +1433,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Checkbox
                         id="imgGroupPadding"
                         checked={groupPaddingSides}
-                        onCheckedChange={(checked) => setGroupPaddingSides(checked as boolean)}
+                        onCheckedChange={(checked) =>
+                          setGroupPaddingSides(checked as boolean)
+                        }
                       />
-                      <Label htmlFor="imgGroupPadding" className="text-xs text-gray-600 cursor-pointer">
+                      <Label
+                        htmlFor="imgGroupPadding"
+                        className="text-xs text-gray-600 cursor-pointer"
+                      >
                         Group sides
                       </Label>
                     </div>
@@ -1283,50 +1451,79 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         type="number"
                         min="0"
                         value={paddingTop}
-                        onChange={(e) => handlePaddingChange(parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handlePaddingChange(parseInt(e.target.value))
+                        }
                         className="flex-1 focus:ring-valasys-orange focus:ring-2"
                       />
-                      <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                      <span className="px-2 py-1 text-sm text-gray-600">
+                        px
+                      </span>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↑</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↑
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingTop}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "top")}
+                          onChange={(e) =>
+                            handlePaddingChange(parseInt(e.target.value), "top")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">→</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          →
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingRight}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "right")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "right",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↓</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↓
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingBottom}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "bottom")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "bottom",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">←</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ←
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={paddingLeft}
-                          onChange={(e) => handlePaddingChange(parseInt(e.target.value), "left")}
+                          onChange={(e) =>
+                            handlePaddingChange(
+                              parseInt(e.target.value),
+                              "left",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
@@ -1344,50 +1541,76 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         type="number"
                         min="0"
                         value={marginTop}
-                        onChange={(e) => handleMarginChange(parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handleMarginChange(parseInt(e.target.value))
+                        }
                         className="flex-1 focus:ring-valasys-orange focus:ring-2"
                       />
-                      <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                      <span className="px-2 py-1 text-sm text-gray-600">
+                        px
+                      </span>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↑</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↑
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginTop}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "top")}
+                          onChange={(e) =>
+                            handleMarginChange(parseInt(e.target.value), "top")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">→</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          →
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginRight}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "right")}
+                          onChange={(e) =>
+                            handleMarginChange(
+                              parseInt(e.target.value),
+                              "right",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">↓</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ↓
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginBottom}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "bottom")}
+                          onChange={(e) =>
+                            handleMarginChange(
+                              parseInt(e.target.value),
+                              "bottom",
+                            )
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs text-gray-600 w-6 text-center">←</span>
+                        <span className="text-xs text-gray-600 w-6 text-center">
+                          ←
+                        </span>
                         <Input
                           type="number"
                           min="0"
                           value={marginLeft}
-                          onChange={(e) => handleMarginChange(parseInt(e.target.value), "left")}
+                          onChange={(e) =>
+                            handleMarginChange(parseInt(e.target.value), "left")
+                          }
                           className="flex-1 focus:ring-valasys-orange focus:ring-2"
                         />
                       </div>
@@ -1405,9 +1628,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Checkbox
                     id="imgApplyBorder"
                     checked={applyBorderToAllSides}
-                    onCheckedChange={(checked) => setApplyBorderToAllSides(checked as boolean)}
+                    onCheckedChange={(checked) =>
+                      setApplyBorderToAllSides(checked as boolean)
+                    }
                   />
-                  <Label htmlFor="imgApplyBorder" className="text-xs text-gray-600 cursor-pointer">
+                  <Label
+                    htmlFor="imgApplyBorder"
+                    className="text-xs text-gray-600 cursor-pointer"
+                  >
                     Apply to all sides
                   </Label>
                 </div>
@@ -1455,7 +1683,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 Content visibility
               </h4>
               <p className="text-xs text-gray-500 mb-3">
-                Display or hide content based on the type of device or other specific conditions
+                Display or hide content based on the type of device or other
+                specific conditions
               </p>
               <div className="flex gap-2 flex-wrap">
                 <Button
