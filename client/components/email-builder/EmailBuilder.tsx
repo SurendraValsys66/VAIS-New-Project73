@@ -152,7 +152,7 @@ export const EmailBuilder: React.FC<EmailBuilderProps> = ({
 
   return (
     <DashboardLayout>
-      <div className="flex flex-col h-screen bg-gray-50 -m-6">
+      <div className="flex flex-col h-[calc(100vh-120px)] bg-gray-50">
         {/* Top Header */}
         <div className="bg-white border-b border-gray-200 p-4 flex items-center justify-between sticky top-0 z-40">
           <div className="flex items-center gap-4 flex-1">
