@@ -13,6 +13,17 @@ export type BlockType =
   | "navigation"
   | "spacer";
 
+export interface TitleBlock {
+  type: "title";
+  id: string;
+  content: string;
+  fontSize: number;
+  fontColor: string;
+  backgroundColor: string;
+  alignment: "left" | "center" | "right";
+  fontWeight: "normal" | "bold";
+}
+
 export interface TextBlock {
   type: "text";
   id: string;
