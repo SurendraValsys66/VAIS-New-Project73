@@ -171,6 +171,12 @@ export function createHtmlBlock(content = ""): HtmlBlock {
     type: "html",
     id: generateId(),
     content,
+    padding: 0,
+    margin: 0,
+    borderWidth: 0,
+    borderColor: "#000000",
+    borderRadius: 0,
+    visibility: "all",
   };
 }
 
