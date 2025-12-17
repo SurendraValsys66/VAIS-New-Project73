@@ -174,7 +174,7 @@ const SectionsPanel: React.FC<SectionsPanelProps> = ({ onAddBlock }) => {
       description:
         "Image at top, followed by title, description text, and call-to-action button",
       preview:
-        "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=400&h=200&fit=crop",
+        "data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='200' fill='%23f5f5f5'/%3E%3Crect y='0' width='400' height='80' fill='%23ddd'/%3E%3Ctext x='200' y='120' font-size='16' font-weight='bold' text-anchor='middle' fill='%23333'%3ESome title here%3C/text%3E%3Ctext x='200' y='140' font-size='12' text-anchor='middle' fill='%23666'%3ELorem ipsum dolor sit amet%3C/text%3E%3Crect x='150' y='155' width='100' height='30' fill='%23FF6A00' rx='4'/%3E%3Ctext x='200' y='175' font-size='12' text-anchor='middle' fill='white' font-weight='bold'%3ECall to action%3C/text%3E%3C/svg%3E",
       blocks: () => [
         createImageBlock(),
         createTitleBlock(),
@@ -188,7 +188,7 @@ const SectionsPanel: React.FC<SectionsPanelProps> = ({ onAddBlock }) => {
       description:
         "Image on left side with title, description text, and CTA button on right side",
       preview:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
+        "data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='200' fill='%23f5f5f5'/%3E%3Crect x='0' y='0' width='180' height='200' fill='%23ddd'/%3E%3Ctext x='250' y='50' font-size='14' font-weight='bold' fill='%23333'%3ETitle%3C/text%3E%3Ctext x='250' y='70' font-size='11' fill='%23666'%3ELorem ipsum dolor sit amet%3C/text%3E%3Ctext x='250' y='85' font-size='11' fill='%23666'%3Econsectetur adipiscing elit%3C/text%3E%3Crect x='220' y='110' width='80' height='25' fill='%23FF6A00' rx='3'/%3E%3Ctext x='260' y='128' font-size='11' text-anchor='middle' fill='white' font-weight='bold'%3ECall to action%3C/text%3E%3C/svg%3E",
       blocks: () => [createSplitImageCardBlock("left")],
     },
     {
@@ -197,7 +197,7 @@ const SectionsPanel: React.FC<SectionsPanelProps> = ({ onAddBlock }) => {
       description:
         "Image on right side with title, description text, and CTA button on left side",
       preview:
-        "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=400&h=200&fit=crop",
+        "data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='200' fill='%23f5f5f5'/%3E%3Crect x='220' y='0' width='180' height='200' fill='%23ddd'/%3E%3Ctext x='100' y='50' font-size='14' font-weight='bold' fill='%23333'%3ETitle%3C/text%3E%3Ctext x='100' y='70' font-size='11' fill='%23666'%3ELorem ipsum dolor sit amet%3C/text%3E%3Ctext x='100' y='85' font-size='11' fill='%23666'%3Econsectetur adipiscing elit%3C/text%3E%3Crect x='60' y='110' width='80' height='25' fill='%23FF6A00' rx='3'/%3E%3Ctext x='100' y='128' font-size='11' text-anchor='middle' fill='white' font-weight='bold'%3ECall to action%3C/text%3E%3C/svg%3E",
       blocks: () => [createSplitImageCardBlock("right")],
     },
   ];
