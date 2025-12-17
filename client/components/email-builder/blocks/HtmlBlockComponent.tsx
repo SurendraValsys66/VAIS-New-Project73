@@ -13,11 +13,18 @@ export const HtmlBlockComponent: React.FC<HtmlBlockComponentProps> = ({
   isSelected,
   onContentChange,
 }) => {
+  const width = `${block.width}${block.widthUnit}`;
+
   return (
     <div
-      className={`relative p-4 transition-all ${
+      className={`relative transition-all ${
         isSelected ? "ring-2 ring-valasys-orange" : ""
       }`}
+      style={{
+        margin: `${block.margin}px`,
+        padding: `${block.padding}px`,
+        width: block.widthUnit === "%" ? "100%" : "auto",
+      }}
     >
       <div
         style={{
@@ -30,6 +37,7 @@ export const HtmlBlockComponent: React.FC<HtmlBlockComponentProps> = ({
           color: "#333",
           maxHeight: "200px",
           overflowY: "auto",
+          width: width,
         }}
       >
         <div className="flex items-start gap-2 mb-2">
