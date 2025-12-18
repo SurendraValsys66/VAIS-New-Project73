@@ -6,11 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Plus,
-  Copy,
-  Trash2,
-} from "lucide-react";
+import { Plus, Copy, Trash2 } from "lucide-react";
 import { ContentBlock } from "./types";
 import {
   createTitleBlock,

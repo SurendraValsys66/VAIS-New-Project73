@@ -83,21 +83,28 @@ export const EmailBuilder: React.FC<EmailBuilderProps> = ({
   const selectedBlock =
     template.blocks.find((b) => b.id === selectedBlockId) || null;
 
-  const handleAddBlock = useCallback((block: ContentBlock, position?: number) => {
-    setTemplate((prev) => {
-      const newBlocks = [...prev.blocks];
-      if (position !== undefined && position >= 0 && position <= newBlocks.length) {
-        newBlocks.splice(position, 0, block);
-      } else {
-        newBlocks.push(block);
-      }
-      return {
-        ...prev,
-        blocks: newBlocks,
-        updatedAt: new Date().toISOString(),
-      };
-    });
-  }, []);
+  const handleAddBlock = useCallback(
+    (block: ContentBlock, position?: number) => {
+      setTemplate((prev) => {
+        const newBlocks = [...prev.blocks];
+        if (
+          position !== undefined &&
+          position >= 0 &&
+          position <= newBlocks.length
+        ) {
+          newBlocks.splice(position, 0, block);
+        } else {
+          newBlocks.push(block);
+        }
+        return {
+          ...prev,
+          blocks: newBlocks,
+          updatedAt: new Date().toISOString(),
+        };
+      });
+    },
+    [],
+  );
 
   const handleUpdateBlock = useCallback((block: ContentBlock) => {
     setTemplate((prev) => ({
