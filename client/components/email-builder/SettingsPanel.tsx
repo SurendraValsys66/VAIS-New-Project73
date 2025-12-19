@@ -1366,7 +1366,19 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       }
                       className="flex-1 focus:ring-valasys-orange focus:ring-2"
                     />
-                    <span className="px-2 py-1 text-sm text-gray-600">px</span>
+                    <select
+                      value={block.heightUnit || "px"}
+                      onChange={(e) =>
+                        onBlockUpdate({
+                          ...block,
+                          heightUnit: e.target.value as "px" | "%",
+                        })
+                      }
+                      className="px-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
+                    >
+                      <option value="%">%</option>
+                      <option value="px">px</option>
+                    </select>
                   </div>
                 </div>
 
