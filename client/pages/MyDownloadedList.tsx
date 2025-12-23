@@ -1358,16 +1358,19 @@ export default function MyDownloadedList() {
 
             {connectedCrms.length === 0 ? (
               <>
-                <Alert className="mb-4">
-                  <Info className="h-4 w-4" />
-                  <AlertTitle className="ml-2">
-                    No connected CRM account found
-                  </AlertTitle>
-                  <AlertDescription className="ml-6 -mt-4">
-                    You can still import the CSV manually using the steps below,
-                    or connect a CRM for one-click uploads.
-                  </AlertDescription>
-                </Alert>
+                <div className="rounded-lg border-l-4 border-l-blue-500 bg-blue-50 border border-blue-200 p-4 mb-6">
+                  <div className="flex gap-3">
+                    <Info className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-blue-900 text-sm">
+                        No connected CRM account
+                      </p>
+                      <p className="text-blue-800 text-sm mt-1">
+                        You can import the CSV manually by following the guided steps below, or connect a CRM for one-click uploads.
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 <Accordion type="single" collapsible className="mb-4">
                   <AccordionItem value="connect">
                     <AccordionTrigger>
